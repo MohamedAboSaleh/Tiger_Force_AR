@@ -9,38 +9,79 @@ public class ViewMap : MonoBehaviour
     public GameObject closeBtn;
     public GameObject mainCam;
     public GameObject ARCam;
+    public GameObject canv_cam;
+    public GameObject tank;
+    public GameObject can;
+    public GameObject canvas_for_map;
+    public GameObject switch_cam;
+    public GameObject destroyed;
+    GameObject current_cam;
+   
+
     private void Start()
     {
-        // Hide the map image initially
         mapImage.SetActive(false);
+        current_cam = ARCam;
     }
 
+    /* funaction name:OpenMap
+* input:none
+* output:void
+* functionality: this function displays the map and starts the animation
+*/
     public void OpenMap()
     {
-        // Show the map image when the button is clicked
-        mapImage.SetActive(true);
+        can.SetActive(false);
+        canvas_for_map.SetActive(true);
         openBtn.SetActive(false);
         closeBtn.SetActive(true);
+        canv_cam.SetActive(true);
+        current_cam.SetActive(false);
+        switch_cam.SetActive(false);
+        tank.SetActive(false);
+        
+
     }
-    // Start is called before the first frame update
+    /* funaction name:CloseMap
+* input:none
+* output:void
+* functionality: this function closes the map and returns the previous scene
+*/
     public void CloseMap()
     {
-        mapImage.SetActive(false);
+        
+        can.SetActive(true);
+        canvas_for_map.SetActive(false);
+        
         openBtn.SetActive(true);
         closeBtn.SetActive(false);
+        canv_cam.SetActive(false);
+        current_cam.SetActive(true);
+        switch_cam.SetActive(true);
+        tank.SetActive(true);
+        
     }
+    /* funaction name:switchCam
+* input:none
+* output:void
+* functionality: this function switches between AR camera and main camera if the switch view button was pressed
+*/
     public void switchCam()
     {
         if (mainCam.activeSelf)
         {
+            current_cam = ARCam;
             ARCam.SetActive(true);
             mainCam.SetActive(false);
+            destroyed.SetActive(false);
             ///////////////////// check activeSelf => activeInHierarchy
         }
         else
         {
+            current_cam = mainCam;
             mainCam.SetActive(true);
             ARCam.SetActive(false);
+            destroyed.SetActive(true);
         }
 
     }

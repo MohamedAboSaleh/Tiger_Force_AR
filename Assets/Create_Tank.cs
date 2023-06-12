@@ -7,9 +7,16 @@ public class Create_Tank : MonoBehaviour
     public int total_number_of_tanks = 20;
     public int counter = 1;
     public GameObject child_object;
-   // public AudioClip soundClip;
-   // private AudioSource audioSource;
-    // Start is called before the first frame update
+
+
+    /*
+     * funaction name:Start
+     * input:none
+     * output:void
+     * functionality: Start is called before the first frame update
+     * and calls InstantiateObject after 5 seconds
+     */
+
     void Start()
     {
         if(counter< total_number_of_tanks)
@@ -25,7 +32,12 @@ public class Create_Tank : MonoBehaviour
     {
         
     }
-
+    /*
+     * funaction name:InstantiateObject
+     * input:none
+     * output:void
+     * functionality: this function instantiate child object which is a tank
+     */
     void InstantiateObject()
     {
         
@@ -38,19 +50,6 @@ public class Create_Tank : MonoBehaviour
         script.counter = counter + 1;
         Move_Tank move = newObj.GetComponent<Move_Tank>();
         move.target.z = move.target.z + 500;
-        /*
-        audioSource = newObj.AddComponent<AudioSource>();
 
-        // Set the audio clip
-        audioSource.clip = soundClip;
-
-        // Set the loop property to true to play the sound continuously
-        audioSource.loop = true;
-        audioSource.volume = 0.5f;
-
-        // Play the sound
-        audioSource.Play();
-        //newObj.transform.localScale = scale;
-        */
     }
 }

@@ -10,6 +10,12 @@ public class TextScript : MonoBehaviour
     public GameObject canvas;
     public GameObject Tank;
     // Start is called before the first frame update
+
+    /* funaction name:Start
+* input:none
+* output:void
+* functionality: this function display the texts that appears when the application start
+*/
     void Start()
     {
         ThreeTanksText.SetActive(true);

@@ -7,14 +7,17 @@ public class Move_Tank : MonoBehaviour
     public float speed = 200;
     public Vector3 target = new Vector3(0, (float)20.66075, 1200);
 
-    //private bool messagePrinted = false;
-    // Start is called before the first frame update
+    
     void Start()
     {
 
     }
 
-    // Update is called once per frame
+    /* funaction name:Update
+ * input:none
+ * output:void
+ * functionality: this function moves the tank object to the tagret point
+ */
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
@@ -25,11 +28,7 @@ public class Move_Tank : MonoBehaviour
             
         }
             
-        /*if (!messagePrinted && transform.position == target)
-        {
-            Debug.Log(transform.position);
-            messagePrinted =true;
-        }*/
+
             
     }
 }

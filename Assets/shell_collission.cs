@@ -18,6 +18,12 @@ public class shell_collission : MonoBehaviour
     {
         
     }
+    /* funaction name:OnCollisionEnter
+ * input:none
+ * output:void
+ * functionality: this function is called when a collision is detected and the collision involves object of tag equals to Sye_Tank 
+ * an explosion effect will be created
+ */
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Sye_Tank")
